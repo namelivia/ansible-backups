@@ -1,0 +1,22 @@
+---
+- name: Create the backup directory
+  file:
+    path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name}}/backup"
+    state: directory
+
+- name: Create the backupscript
+  template:
+    src: ../templates/backup.j2
+    dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup.sh"
+    owner: root
+    group: root
+    mode: '755'
+
+- name: Create a backup every week
+  cron:
+    name: "backup {{ application_name }} files"
+    weekday: "{{ backup_day }}"
+    minute: "0"
+    hour: "6"
+    job: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup.sh"
+    user: root

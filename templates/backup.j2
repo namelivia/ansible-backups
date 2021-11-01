@@ -1,0 +1,6 @@
+#!/bin/bash
+tar -cf - {{ hostvars[inventory_hostname].working_directory }}{{application_name}}/files |
+	xz -c - |
+	gpg --always-trust --recipient {{gpg_recipient}} --encrypt -o {{ hostvars[inventory_hostname].working_directory}}{{application_name}}/backup/{{ application_name }}"$(date '+%Y%m%d%H%M%S')"_files.tgz.xz
+cd {{ hostvars[inventory_hostname].working_directory }}{{application_name}}/backup && rm `ls -t | awk 'NR>5'`
+
