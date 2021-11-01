@@ -1,0 +1,17 @@
+---
+- name: Create the awsbackupscript
+  template:
+    src: ../templates/awsbackup.j2
+    dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/awsbackup.sh"
+    owner: root
+    group: root
+    mode: '755'
+
+- name: Create an aws backup every week
+  cron:
+    name: "aws backup {{ application_name }} files"
+    weekday: "0"
+    minute: "3"
+    hour: "0"
+    job: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/awsbackup.sh"
+    user: root
