@@ -4,9 +4,11 @@ This is the Ansible role I use to periodically backup all the content of what's 
 
 ## Included tasks
  - `setup-s3-backups` Setup a recurrent task to save backups on s3.
- - `setup-file-backups` Setup a recurrent ticket to create important files backup.
+ - `setup-file-backups` Setup a recurrent task to create important files backup.
+ - `setup-mariadb-database-backups` Setup a recurrent task to backup a mariadb database.
+ - `setup-postgres-database-backups` Setup a recurrent task to backup a postgres database.
 
-## Required variables
+## Required variables (TODO: Update this)
 
  - `application_name` Application name to create backups for.
  - `backups_bucket_name` Name of the S3 bucket that will hold the backups.

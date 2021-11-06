@@ -6,7 +6,7 @@
 
 - name: Create the backupscript
   template:
-    src: ../templates/backup.j2
+    src: ../templates/files_backup.j2
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup.sh"
     owner: root
     group: root
