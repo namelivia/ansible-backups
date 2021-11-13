@@ -1,5 +1,5 @@
 #!/bin/bash
-docker exec {{ database_container_name }} /usr/bin/mysqldump -u {{ database_user }} --password={{ database_password }} {{ database_name }} |
+docker exec {{ database_container_name }} /usr/bin/mysqldump -u {{ database_user }} --password='{{ database_password }}' {{ database_name }} |
 	gzip -c |
 	xz -c - |
 	gpg --always-trust --recipient {{gpg_recipient}} --encrypt -o {{ hostvars[inventory_hostname].working_directory
