@@ -1,4 +1,9 @@
 ---
+- name: 'Check mandatory variables are defined'
+  assert:
+    that:
+      - backups_bucket_name is defined
+
 - name: Create the awsbackupscript
   template:
     src: ../templates/awsbackup.j2
