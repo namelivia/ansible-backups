@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: namelivia.backups
+  role_name: backups
   author: José Ignacio Amelivia Santiago <jignacio.amelivia@gmail.com>
   description: Ansible role I use to backup the contents of my servers in S3.
   license: GPLv2
