@@ -10,7 +10,7 @@
 
 - name: Create the dumps backup directory
   file:
-    path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name}}/backup"
+    path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup"
     state: directory
 
 - name: Create the dump script
