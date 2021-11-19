@@ -6,7 +6,7 @@
 
 - name: Create the awsbackupscript
   template:
-    src: ../templates/awsbackup.j2
+    src: awsbackup.j2
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/awsbackup.sh"
     owner: root
     group: root

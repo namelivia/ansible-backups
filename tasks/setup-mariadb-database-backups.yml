@@ -12,14 +12,15 @@
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup"
     state: directory
+    mode: 0700
 
 - name: Create the dump script
   template:
-    src: ../templates/mariadb_dump.j2
+    src: mariadb_dump.j2
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/dump.sh"
     owner: root
     group: root
-    mode: '755'
+    mode: 0755
 
 - name: Create a database dump every week
   cron:
