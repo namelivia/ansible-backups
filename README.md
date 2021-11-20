@@ -1,4 +1,4 @@
-# Backups Ansible role
+# Backups Ansible role [![Ansible Lint](https://github.com/namelivia/ansible-backups/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/namelivia/ansible-backups/actions/workflows/ansible-lint.yml)
 
 This is the Ansible role I use to periodically backup all the content of what's in my servers in S3.
 
