@@ -1,4 +1,5 @@
 #!/bin/bash
+eval "$(sentry-cli bash-hook)"
 docker exec  -e PGPASSWORD={{database_password}} -t {{ database_container_name }} pg_dump -c -U {{ database_user }} {{ database_name }} |
 	gzip -c |
 	xz -c - |
