@@ -30,3 +30,11 @@
     hour: "0"
     job: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/dump.sh"
     user: root
+
+- name: Create the restore script
+  template:
+    src: mariadb_restore.j2
+    dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/restore_database.sh"
+    owner: root
+    group: root
+    mode: 0755
