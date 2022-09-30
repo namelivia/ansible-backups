@@ -28,3 +28,11 @@
     hour: "6"
     job: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup.sh"
     user: root
+
+- name: Create the restore script
+  template:
+    src: restore_files.j2
+    dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/restore_files.sh"
+    owner: root
+    group: root
+    mode: 0755

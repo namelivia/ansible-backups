@@ -4,5 +4,5 @@ docker exec {{ database_container_name }} /usr/bin/mysqldump -u {{ database_user
 	gzip -c |
 	xz -c - |
 	gpg --always-trust --recipient {{gpg_recipient}} --encrypt -o {{ hostvars[inventory_hostname].working_directory
-}}{{ application_name }}/backup/{{ application_name }}"$(date '+%Y%m%d%H%M%S')"_dump.tgz.xz
+}}{{ application_name }}/backup/{{ application_name }}_"$(date '+%Y%m%d%H%M%S')"_dump.tgz.xz
 cd {{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup && rm `ls -t | awk 'NR>5'`
