@@ -8,6 +8,10 @@
       - database_password is defined
       - gpg_recipient is defined
 
+- name: Backup debug
+  debug:
+    msg: "Database name: {{ database_name }}"
+
 - name: Create the dumps backup directory
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup"
