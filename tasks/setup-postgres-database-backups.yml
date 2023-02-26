@@ -5,7 +5,7 @@
       - application_name is defined
       - database_container_name is defined
       - database_user is defined
-      - notifications_endpoint is defined
+      - backups_notifications_endpoint is defined
       - database_password is defined
       - gpg_recipient is defined
 

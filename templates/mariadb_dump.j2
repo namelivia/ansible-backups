@@ -6,4 +6,4 @@ docker exec {{ database_container_name }} /usr/bin/mysqldump -u {{ database_user
 	gpg --always-trust --recipient {{gpg_recipient}} --encrypt -o {{ hostvars[inventory_hostname].working_directory
 }}{{ application_name }}/backup/{{ application_name }}_"$(date '+%Y%m%d%H%M%S')"_dump.tgz.xz
 cd {{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup && rm `ls -t | awk 'NR>5'`
-curl -X POST -d '{"body":"{{ application_name }} mariadb database backed up"}' -H "Content-Type: application/json" {{ notifications_endpoint }}
+curl -X POST -d '{"body":"{{ application_name }} mariadb database backed up"}' -H "Content-Type: application/json" {{ backups_notifications_endpoint }}

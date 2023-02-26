@@ -3,7 +3,7 @@
   assert:
     that:
       - application_name is defined
-      - notifications_endpoint is defined
+      - backups_notifications_endpoint is defined
       - backup_day is defined
       - gpg_recipient is defined
 

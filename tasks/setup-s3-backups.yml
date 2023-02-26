@@ -3,7 +3,7 @@
   assert:
     that:
       - backups_bucket_name is defined
-      - notifications_endpoint is defined
+      - backups_notifications_endpoint is defined
 
 - name: Create the awsbackupscript
   template:
