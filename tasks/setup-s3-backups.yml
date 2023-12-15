@@ -11,7 +11,7 @@
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/awsbackup.sh"
     owner: root
     group: root
-    mode: '755'
+    mode: "0755"
 
 - name: Create an aws backup every week
   cron:

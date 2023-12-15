@@ -6,7 +6,7 @@
 
 - name: Add path to restic targets file
   lineinfile:
-    path: /path/to/your/file.txt
     path: "{{ hostvars[inventory_hostname].working_directory }}/restic/backup_targets"
     line: "{{ file_path }}"
-    create: yes
+    create: true
+    mode: "0644"

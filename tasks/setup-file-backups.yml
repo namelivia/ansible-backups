@@ -11,7 +11,7 @@
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup"
     state: directory
-    mode: 0700
+    mode: "0700"
 
 - name: Create the backupscript
   template:
@@ -19,7 +19,7 @@
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/backup.sh"
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
 
 - name: Create a backup every week
   cron:
@@ -36,4 +36,4 @@
     dest: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/restore_files.sh"
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
